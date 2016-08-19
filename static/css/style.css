@@ -1,0 +1,66 @@
+#tweet{
+	width: 25em;
+}
+
+.node {
+    stroke: #fff;
+    stroke-width: 1.5px;
+}
+.link {
+    stroke: #999;
+    stroke-opacity: .6;
+}
+
+.panel{
+	transition: background .8s;
+}
+.panel:hover{
+	background: #D9E8F5;
+}
+
+a{
+	text-decoration: none !important;
+}
+
+.onSite{
+	font-size: 2em;
+	font-weight: bold;
+	color: #046380;
+}
+
+.history{
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+.history li{
+	display: block;
+	padding: 5px 0;
+	margin: 5px 0;
+	font-weight: bold;
+	border-bottom: 1px #C2EBFF solid;
+}
+
+.history .in{
+	color: #85A831;
+}
+
+.history .out{
+	color: #FD7400;
+}
+
+.footer{
+	margin-top: 3em;
+	font-size: 1.2em;
+}
+
+.footer a, .footer a:visited{
+	font-weight: bold;
+	text-decoration: none;
+	color: #000;
+}
+
+.footer a:hove{
+	text-decoration:underline;
+}
