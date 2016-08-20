@@ -14,7 +14,7 @@ A Terrain + Accident Mapping Utility in Real Time for preventing accidents
 3. Also, more people die due to delayed first aid response time
 4. While 4726 lives were lost in crashes due to humps, 6672 people died due to potholes and speed breakers [1]
 
-[1] Real Time Detection of Speed Breakers and Warning System for on-road Drivers
+[1] [Real Time Detection of Speed Breakers and Warning System for on-road Drivers](http://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=7443976)
 
 ## How it does?
 
@@ -30,7 +30,7 @@ A Terrain + Accident Mapping Utility in Real Time for preventing accidents
 
 ![image](https://github.com/amaneureka/iota/blob/master/screenshots/image.png)
 
-* These Curve represents Fast Fourier Transform for the movement of vehicle ,at a given LatLong , in Z direction.
+* These Curve represents Fast Fourier Transform for the movement of vehicle, at a given LatLong, in Z direction.
 * This curve can be used to predict whether road ahead is bumpy or whether there is a speedbreaker ahead.
 * This curve have multiple spikes stating there are many bumps.
 
@@ -42,9 +42,9 @@ A Terrain + Accident Mapping Utility in Real Time for preventing accidents
 
 ## Algorithms
 
-We have employed mainly two algorithms :
-1. Fast Fourier Transform(FFT) : It is used in plotting frequency spectrum of movement along z direction which is then processed by our decision making algorithm.
-2. Decision Making Algorithm : This algorithm evaluates road conditions by understanding the nature of spikes in the FFT curve. If we have no Dominant Spike then it would shoot bumpy road , else if there is single dominant spike then it will shoot for a speed breaker and accordingly.
+We have employed mainly two algorithms:
+1. Fast Fourier Transform(FFT): It is used in plotting frequency spectrum of movement along z direction which is then processed by our decision making algorithm.
+2. Decision Making Algorithm: This algorithm evaluates road conditions by understanding the nature of spikes in the FFT curve. If we have no Dominant Spike then it would shoot bumpy road, else if there is single dominant spike then it will shoot for a speed breaker and accordingly.
 
 ## Hardware Used
 
@@ -70,13 +70,15 @@ Hardware used:
 
 Network Topology adopted by Our team is as follow:
 
+![Architecture](https://github.com/amaneureka/iota/blob/master/screenshots/Architecture.jpg)
+
 ## Future and Scalability
 
 There is one casualty every 4 minutes , according to Road Safety Organisations of India. This stat is single most reason why road safety requires technological intervention.
 
-With our IOT concept of connecting cars under a single umbrella of local networks,it help make drivers more aware of what other drivers have experienced while passing the same road , and take decision accordingly.
+With our IOT concept of connecting cars under a single umbrella of local networks, it help make drivers more aware of what other drivers have experienced while passing the same road , and take decision accordingly.
 
-Currently our functionality is limited till road analysis (like whether it is bumpy ,has potholes), however many other applications such as:
+Currently our functionality is limited till road analysis (like whether it is bumpy, has potholes), however many other applications such as:
  
  1. Smart vehicle congestion control 
  2. Smart Collision control
@@ -86,7 +88,7 @@ Using Sockets it can be easily scaled to large number of cars (upto 1000) in rea
 
 ## Developers
 
-* Manraj Singh (@ManrajGrover)
-* Harshul Jain (@harshul1610)
-* Dinesh Agarwal (@da230896 )
-* Aman Priyadarshi (@amaneureka)
+* Manraj Singh ([@ManrajGrover](https://github.com/ManrajGrover))
+* Harshul Jain ([@harshul1610](https://github.com/harshul1610))
+* Dinesh Agarwal ([@da230896](https://github.com/da230896))
+* Aman Priyadarshi ([@amaneureka](https://github.com/amaneureka))
