@@ -48,10 +48,10 @@ We have employed mainly two algorithms :
 
 ## Hardware Used
 
-Hardware used :
-1.Arduino 
-2.Accelerometer 
-3.GPS Module
+Hardware used:
+1. Arduino 
+2. Accelerometer 
+3. GPS Module
 4. Node MCU
 5. Android Phone
 
@@ -76,9 +76,10 @@ There is one casualty every 4 minutes , according to Road Safety Organisations o
 With our IOT concept of connecting cars under a single umbrella of local networks,it help make drivers more aware of what other drivers have experienced while passing the same road , and take decision accordingly.
 
 Currently our functionality is limited till road analysis (like whether it is bumpy ,has potholes), however many other applications such as:
- 	1.smart vehicle congestion control 
-	2.Smart Collision control
-	3.Admin panels for SOS calls. Can also be implemented.
+ 
+ 1. Smart vehicle congestion control 
+ 2. Smart Collision control
+ 3. Admin panels for SOS calls. Can also be implemented.
 
 Using Sockets it can be easily scaled to large number of cars (upto 1000) in real time. Also with a dedicated algorithmic power it can solve many other problems arising due to poor driving behaviours.
 
