@@ -49,6 +49,7 @@ We have employed mainly two algorithms :
 ## Hardware Used
 
 Hardware used:
+
 1. Arduino 
 2. Accelerometer 
 3. GPS Module
