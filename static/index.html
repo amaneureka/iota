@@ -1,16 +1,27 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
-	<title>IoT counter</title>
+	<title>Iota</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-	<link rel="stylesheet" href="js/c3/c3.min.css">
-
+  <link href='https://api.mapbox.com/mapbox-gl-js/v0.22.1/mapbox-gl.css' rel='stylesheet' />
 	<link rel="stylesheet" href="css/style.css">
+  <script src='https://api.mapbox.com/mapbox-gl-js/v0.22.1/mapbox-gl.js'></script>
 </head>
 <body>
-	<script src="http://d3js.org/d3.v3.js"></script>
-	<script src="js/c3/c3.js"></script>
-	<script src="js/bundle.js"></script>
+  <div class="container">
+    <h1>Admin Panel</h1>
+    <div id='map' style='width: 400px; height: 300px;'></div>
+  </div>
+  <script>
+    mapboxgl.accessToken = 'pk.eyJ1IjoibWFucmFqc2luZ2giLCJhIjoiY2lzMmNwbHV5MDBlaTJubzA3Y3hrdjZmZiJ9.qzTNuRagw51nT66Tv8dq6A';
+    var map = new mapboxgl.Map({
+      container: 'map',
+      style: 'mapbox://styles/mapbox/streets-v9',
+      center: [-122.420679, 37.772537],
+      zoom: 13,
+    });
+  </script>
+	<script src="js/script.js"></script>
 </body>
 </html>

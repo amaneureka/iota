@@ -2,35 +2,78 @@
 * @Author: Manraj Singh
 * @Date:   2016-08-19 20:20:19
 * @Last Modified by:   Manraj Singh
-* @Last Modified time: 2016-08-20 00:39:21
+* @Last Modified time: 2016-08-20 07:05:07
 */
 
 var express = require('express');
 var app = express();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
-// var mongoose = require('mongoose');
 var Socketer = require('./lib/Socketer');
-var PeopleAction = require('./lib/action-model');
+var mysql      = require('mysql');
 
-// mongoose.connect('mongodb://localhost/myappdatabase');
+var connection = mysql.createConnection({
+  host     : 'localhost',
+  user     : 'root',
+  password : 'root',
+  database : '200OK'
+});
+
+connection.connect();
+
 Socketer(3000, onEmittedData);
 
 function onEmittedData(newAction) {
   console.log('Action: ', newAction);
-  /*var action = {
-    action: newAction,
-    created: new Date().toISOString()
+  newAction = newAction.replace("\r\n", "").replace("\r","").replace("\n","");
+  var res = newAction.split(' ');
+  var final = {};
+  if(res.length < 5){
+    return;
   }
-  io.emit('newAction', action);
-  var newPeopleAction = new PeopleAction(action);
-  newPeopleAction.save(function (error) {
-    if (error) {
-      console.log('\n\nError on save people action: ', error);
-      return;
+  for(var i=0;i<res.length;i++){
+    console.log(res[i]);
+    var temp = res[i].split('=');
+    final[temp[0]] = temp[1];
+  }
+  console.log(final);
+  var timestamp = Math.round(new Date().getTime()/1000);
+  var hid = 7, gpsLatitude = final['LAT'], gpsLongitude = final['LON'], accX = final['ax'], accY = final['ay'], accZ = final['az'];
+
+  connection.query('SELECT * FROM updated WHERE hardwareID='+hid+'', function(err, rows) {
+    console.log('Hello! ');
+    if (err){
+      console.log('Err: here!');
+      throw err;
     }
-    console.log((new Date()) + 'Action saved successfully!');
-  })*/
+    else{
+      console.log(rows);
+      if(rows.length == 0){
+        console.log('INSERTING!');
+        connection.query('INSERT INTO updated VALUES('+hid+','+timestamp+','+gpsLatitude+','+gpsLongitude+','+accX+','+accY+','+accZ+')', function(err, rows){
+          if (err){
+            throw err;
+          }
+          console.log('Data Inserted');
+        });
+      }
+      else{
+        console.log('UPDATING!');
+        connection.query('UPDATE updated SET timeStamp='+timestamp+',gpsLatitude='+gpsLatitude+',gpsLongitude='+gpsLongitude+',accX='+accX+',accY='+accY+',accZ='+accZ+' WHERE hardwareID='+hid+'', function(err, rows){
+          if (err){
+            throw err;
+          }
+          console.log('Data UPDATED');
+        });
+      }
+    }
+  });
+  connection.query('INSERT INTO logger(hardwareID, timeStamp, gpsLatitude, gpsLongitude, accX, accY, accZ) VALUES('+hid+','+timestamp+','+gpsLatitude+','+gpsLongitude+', '+accX+','+accY+','+accZ+')', function(err, rows){
+    if (err){
+      throw err;
+    }
+    console.log('Data inserted in logger');
+  });
 }
 
 var PORT = process.env.PORT || 8000;
@@ -57,3 +100,4 @@ io.on('connection', function (socket) {
 http.listen(PORT, function serverOn () {
   console.log('http://localhost:' + PORT);
 });
+
