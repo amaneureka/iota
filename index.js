@@ -2,7 +2,7 @@
 * @Author: Manraj Singh
 * @Date:   2016-08-19 20:20:19
 * @Last Modified by:   Manraj Singh
-* @Last Modified time: 2016-08-20 07:05:07
+* @Last Modified time: 2016-08-20 10:40:06
 */
 
 var express = require('express');
@@ -25,12 +25,16 @@ Socketer(3000, onEmittedData);
 
 function onEmittedData(newAction) {
   console.log('Action: ', newAction);
+  if(newAction.indexOf('LAT') == -1 || newAction.indexOf('LON') == -1 || newAction.indexOf('ax') == -1 || newAction.indexOf('ay') == -1 || newAction.indexOf('az') == -1 ){
+    return;
+  }
   newAction = newAction.replace("\r\n", "").replace("\r","").replace("\n","");
   var res = newAction.split(' ');
   var final = {};
   if(res.length < 5){
     return;
   }
+
   for(var i=0;i<res.length;i++){
     console.log(res[i]);
     var temp = res[i].split('=');
