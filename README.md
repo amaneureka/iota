@@ -70,6 +70,8 @@ Hardware used:
 
 Network Topology adopted by Our team is as follow:
 
+![Architecture](https://github.com/amaneureka/iota/blob/master/screenshots/Architecture.jpg)
+
 ## Future and Scalability
 
 There is one casualty every 4 minutes , according to Road Safety Organisations of India. This stat is single most reason why road safety requires technological intervention.
