@@ -1,3 +1,5 @@
+<img src="https://github.com/amaneureka/iota/blob/master/screenshots/logo.png" align="middle" />
+
 # iOTA
 A Terrain + Accident Mapping Utility in Real Time for preventing accidents
 
