@@ -45,6 +45,7 @@ A Terrain + Accident Mapping Utility in Real Time for preventing accidents
 ## Algorithms
 
 We have employed mainly two algorithms:
+
 1. Fast Fourier Transform(FFT): It is used in plotting frequency spectrum of movement along z direction which is then processed by our decision making algorithm.
 2. Decision Making Algorithm: This algorithm evaluates road conditions by understanding the nature of spikes in the FFT curve. If we have no Dominant Spike then it would shoot bumpy road, else if there is single dominant spike then it will shoot for a speed breaker and accordingly.
 
